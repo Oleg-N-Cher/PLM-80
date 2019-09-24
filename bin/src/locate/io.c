@@ -1,6 +1,7 @@
 // vim:ts=4:shiftwidth=4:expandtab:
 #include <ctype.h>
 #include <io.h>
+#include <errno.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <stdio.h>

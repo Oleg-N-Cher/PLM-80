@@ -4,17 +4,17 @@
 SET PATH=..\bin
 CD ..\src
 
-asm80 IO.asm
-IF EXIST IO.LST DEL IO.LST
-IF EXIST IO.OBJ MOVE /Y IO.OBJ ..\obj\IO.OBJ >NUL
+asm80 ZX.asm
+IF EXIST ZX.LST DEL ZX.LST
+IF EXIST ZX.OBJ MOVE /Y ZX.OBJ ..\obj\ZX.OBJ >NUL
 
 plm80 %Name%.plm optimize
 IF EXIST %Name%.LST DEL %Name%.LST
 IF EXIST %Name%.OBJ MOVE /Y %Name%.OBJ ..\obj >NUL
 
 CD ..\obj
-link Hello.obj,IO.obj to Hello1.obj
-locate Hello1.obj to Hello2.obj restart0 code(30003) data(31000) stack(31500) purge
+link Hello.obj,ZX.obj to Hello1.obj
+locate Hello1.obj to Hello2.obj restart0 code(30003) data(31000) stacksize(100) purge
 
 cpm ..\bin\objcpm hello2.obj
 echo.

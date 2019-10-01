@@ -36,8 +36,7 @@ BEGIN
   FOR i := idx DOWNTO 1 DO BEGIN
     IF bin[i] <> lastByte THEN BEGIN idx := i; BREAK END
   END;
-  WriteLn('New size is ', idx);
-  WriteLn('You win ', binLen - idx, ' bytes');
+  WriteLn('New size is ', idx, ' bytes (-', binLen - idx, ')');
   DELETE(bin, idx + 1, binLen);
   StrSaveToFile(ParamStr(1), bin)
 END {stripbin}.
